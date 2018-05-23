@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      {{#each burgers}}
+        {{#unless devoured}}
+          <div>{{id}}. {{burger_name}} <button data-id="{{id}}" class="eat-burger">Eat it!</button></div>
+        {{/unless}}
+      {{/each}}
+    </div>
+    <div class="col-4">
+      <img src="/images/burger.png" alt="Cheeseburger" class="img-responsive">
+      <form>
+        <input type="text" id="burger-name">
+        <button type="submit" id="burger-submit">Submit</button>
+        <small>Enter a burger flavor and click submit.</small>
+      </form>
+    </div>
+    <div class="col-4">
+      {{#each burgers}}
+        {{#if devoured}}
+          <div>{{id}}. {{burger_name}}</div>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</div>
