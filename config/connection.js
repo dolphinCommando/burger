@@ -1,4 +1,4 @@
-var keys = require('./keys.js');
+var keys = require('../public/js/keys.js');
 var mysql = require("mysql");
 
 var connection = mysql.createConnection({
