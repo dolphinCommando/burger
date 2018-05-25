@@ -1,13 +1,13 @@
-var keys = require('../public/js/keys.js');
-//require('dotenv').config();
+//var keys = require('../public/js/keys.js');
+require('dotenv').config();
 var mysql = require("mysql");
-
+const en = process.env;
 var connection = mysql.createConnection({
-  host: keys.host,
-  port: keys.port,
-  user: keys.user,
-  password: keys.password,
-  database: keys.database
+  host: en.SQL_HOST,
+  port: en.SQL_PORT,
+  user: en.SQL_USER,
+  password: en.SQL_PASSWORD,
+  database: en.SQL_DATABASE
 });
 
 
