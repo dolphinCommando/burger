@@ -1,18 +1,23 @@
 $(document).ready(function() {
   $('#burger-submit').on('click', function(event) {
     event.preventDefault();
-    var newData = {
-      name: $('#burger-name').val().trim()
-    };
-    $.ajax('/api/burgers', {
-      type: "POST",
-      data: newData
-    }).then(
-      function() {
-        console.log("Added burger " + newData.name);
-        location.reload();
-      }
-    );
+    var input = $('#burger-name').val().trim();
+    if (input === '' || input === null) {
+      alert('Empty strings not accepted.');
+    }
+    else {
+      var newData = {
+        name: $('#burger-name').val().trim()
+      };
+      $.ajax('/api/burgers', {
+        type: "POST",
+        data: newData
+      }).then(
+        function() {
+          location.reload();
+        }
+      );
+    }
   });
 
   $('body').on('click', '.eat-burger', function(event) {
@@ -24,7 +29,6 @@ $(document).ready(function() {
       data: newData
     }).then(
       function() {
-        console.log("You have eaten burger #", newData.id);
         location.reload();
       }
     );
