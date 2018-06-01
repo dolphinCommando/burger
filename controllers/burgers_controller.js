@@ -14,9 +14,14 @@ router.get('/', (req, res) => {
 });
 
 router.post('/api/burgers', (req, res) => {
-  burger.insertOne(req.body.name, (result) => {
-    res.json({ id: result.id });
-  });
+  if (req.body.name.length > 50 || req.body.name === '' || req.body.name === null) {
+    res.status(400).end();
+  }
+  else {
+    burger.insertOne(req.body.name, (result) => {
+      res.status(200).json({ id: result.id });
+    });
+  }
 });
 
 router.put('/api/burgers/:id', (req, res) => {
