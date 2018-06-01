@@ -1,6 +1,7 @@
 
 body, .container {
   background-color: orange;
+  word-wrap: break-word;
 }
 
 .burger-div {

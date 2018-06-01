@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/api/burgers', (req, res) => {
-  if (req.body.name.length > 50 || req.body.name === '' || req.body.name === null) {
+  if (req.body.name.length > 40 || req.body.name === '' || req.body.name === null) {
     res.status(400).end();
   }
   else {
